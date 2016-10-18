@@ -51,7 +51,7 @@ public class Test {
 				root.display();
 				System.out.println("");
 			}
-		}while(!str.equals("quit"));
+		}while(!str.equals("quit!!!!!!!!"));
 		return;
 	}
 }

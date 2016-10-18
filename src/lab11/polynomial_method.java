@@ -317,6 +317,7 @@ public class polynomial_method {
 	 }
 	 
      public polynomial clear(polynomial root_old){
+    	 System.out.println("dada");
  		polynomial root_new = new polynomial();
  		polynomial root_tmp = root_new;
  		polynomial_method method = new polynomial_method();
