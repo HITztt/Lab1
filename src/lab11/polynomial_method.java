@@ -4,6 +4,7 @@ import lab11.polynomial;
 public class polynomial_method {
 	
 	public void copy(polynomial root_old, polynomial root_new){
+		System.out.println("fa");
 		float c;
 		int e;
 		char op;
