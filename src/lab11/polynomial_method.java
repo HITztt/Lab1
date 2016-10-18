@@ -359,6 +359,7 @@ public class polynomial_method {
  				}
  			}
  		}
+ 		System.out.println("dada");
  		return root_new;
  	}
 }
