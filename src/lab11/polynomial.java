@@ -293,7 +293,7 @@ public class polynomial {
 				 }		 	 
 					
 				 if(havev == false)
-					 System.out.println("Error, no variable!"); 		 
+					 System.out.println("Error!!!!, no variable!"); 		 
 			 }
 			 else
 				 System.out.println("Error input!"); 
