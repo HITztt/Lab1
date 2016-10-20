@@ -228,8 +228,6 @@ public class polynomial {
 		 boolean havev = false;
 		 if(len == 2)
 		 {
-			 System.out.println("new add 11111");
-			 System.out.println("new add 22222");
 			 if(count[0].equals("!d/d"))
 			 {
 				 String d_var = count[1] ;//±‰¡ø	
@@ -267,7 +265,6 @@ public class polynomial {
 							 }
 						}
 						temp=temp.next;
-						System.out.println("222222222");
 					 }
 					 if(havevar == true){
 						 tra = temp;
@@ -295,7 +292,8 @@ public class polynomial {
 				 }		 	 
 					
 				 if(havev == false)
-					 System.out.println("Error, no variable!"); 		 
+					 System.out.println("Error, no variable!"); 
+				     System.out.println("new add 11111");
 			 }
 			 else
 				 System.out.println("Error input!"); 

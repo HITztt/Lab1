@@ -36,7 +36,7 @@ public class Test {
 			}
 			else if(m_diff.find()){
 				if(str.equals("!d/d")){	
-					System.out.println("Error input!!!!!!!!!");
+					System.out.println("Error input!");
 				}
 				else
 				{
