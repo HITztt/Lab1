@@ -343,6 +343,8 @@ public class polynomial_method {
  		 					root_tmp.next = new polynomial();
  						}
  					root_old = root_old.next;
+ 					System.out.println("new add1");
+ 					System.out.println("new add2");
  				}
  				
  				else{
