@@ -28,6 +28,7 @@ public class Test {
 					System.out.println("");
 				}
 				else {
+                        System.out.println("!!!!");
 					root = root.simplify(str,root);
 					root.display();
 					System.out.println("");
@@ -37,7 +38,7 @@ public class Test {
 			else if(m_diff.find()){
 				if(str.equals("!d/d")){
 					System.out.println("Error input!");
-					System.out.println("!!!!");
+
 				}
 				else
 				{
