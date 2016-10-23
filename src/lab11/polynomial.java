@@ -10,16 +10,16 @@ public class polynomial {
 	char op;
 	String var;
 	polynomial next;
-	
+
 	public polynomial(){
 		flag = 2;
 	}
-	
+
 	public polynomial(char o){
 		flag = 1;
 		op = o;
 	}
-	
+
 	public polynomial(float c, String v, int e){
 		flag = 0;
 		coef = c;
@@ -27,8 +27,8 @@ public class polynomial {
 		var = v;
 		next = new polynomial();			//将next初始化为结束标志
 	}
-		
-	
+
+
 	public void display(){
 		DecimalFormat df=(DecimalFormat) DecimalFormat.getInstance();
 		polynomial tmp = this;
@@ -72,7 +72,7 @@ public class polynomial {
 				break;
 		}
 	}
-	
+
 	public polynomial expression(String str){
 		polynomial tmp = this;
 		polynomial root_new = this;
@@ -80,10 +80,10 @@ public class polynomial {
 		Pattern p_pd = Pattern.compile(str_pd);
 		String []item = str.split(str_pd);
 		Matcher m_pd = p_pd.matcher(str);
-		
+
 		String str_mul = "[\\*]";					//将各单项根据*符号分成各变量
 		Pattern p_mul = Pattern.compile(str_mul);
-		
+
 		String str_coef = "^[0-9\\.]+";				//对各变量根据起始数字确定系数
 		Pattern p_coef = Pattern.compile(str_coef);
 		String str_var = "[a-zA-Z]+";				//对各变量根据字母确定变量
@@ -95,7 +95,7 @@ public class polynomial {
 		int e;
 		int num_mul;
 		String v;
-		
+
 		polynomial tmp_coef = tmp;
 		for(String elm_item : item){				//对每一项
 			num_mul = 0;
@@ -131,7 +131,7 @@ public class polynomial {
 
 					continue;
 				}
-				
+
 				if(m_exponent.find()){				//确定指数
 					String []item_exponent = elm_var.split(str_exponent);
 					e = Integer.parseInt(item_exponent[1], 10);
@@ -140,9 +140,9 @@ public class polynomial {
 					e = 1;
 				tmp.next = new polynomial(c, v, e);
 				tmp = tmp.next;
-				
+
 				if(num_mul > 0){					//*号连接
-					tmp.next = new polynomial('*');	
+					tmp.next = new polynomial('*');
 					num_mul--;
 					tmp = tmp.next;
 				}
@@ -150,21 +150,21 @@ public class polynomial {
 			if(tmp == tmp_coef){			//常数项
 				tmp.next = new polynomial(1, "", 1);
 				tmp = tmp.next;
-			}			
+			}
 			tmp_coef = tmp_coef.next;
 			tmp_coef.coef *= coef;
 			coef = 1;
-			
+
 			if(m_pd.find()){						//连接+，-符号
-				tmp.next = new polynomial(m_pd.group().charAt(0));	
+				tmp.next = new polynomial(m_pd.group().charAt(0));
 				tmp = tmp.next;
 			}
 			tmp_coef = tmp;
 		}
-			polynomial_method  method = new polynomial_method();	
+			polynomial_method  method = new polynomial_method();
 			return method.merge(root_new);
 	}
-	
+
 	public polynomial simplify(String input, polynomial root){
 		 polynomial temp = root;
 		 polynomial_method method = new polynomial_method();
@@ -174,7 +174,7 @@ public class polynomial {
 		 float []value= new float[100];
 		 for (int i = 1; i < num; i++)
 		 {
-			 s_var[i-1] = method.GetVarStr(count[i],0);			 
+			 s_var[i-1] = method.GetVarStr(count[i],0);
 			 int len = count[i].length();
 			 String n = count[i].substring(s_var[i-1].length()+1, len);
 			 float v =  Float.parseFloat(n);
@@ -203,22 +203,22 @@ public class polynomial {
 							 temp.var ="";
 							 temp.exponent=1;
 							 break;
-						 }	
+						 }
 					 }
 				 }
 			}
 		}
 		 if(havevar == false)
 		 {
-			 System.out.println("Error, no variable!"); 
+			 System.out.println("Error, no variable!");
 		 }
 
 		return method.merge(root);
 	}
-	
-	
+
+
 	public polynomial diff(String input, polynomial root){
-	 	
+
 		 polynomial temp = root;
 		 polynomial_method method = new polynomial_method();
 		 polynomial tra = root;
@@ -230,10 +230,10 @@ public class polynomial {
 		 {
 			 if(count[0].equals("!d/d"))
 			 {
-				 String d_var = count[1] ;//变量	
+				 String d_var = count[1] ;//变量
 
 				 while(temp.next.flag != 2)//表达式没结束
-				 {			 
+				 {
 					 havevar = false;
 					 temp=temp.next;
 
@@ -245,16 +245,16 @@ public class polynomial {
 						if(temp.flag == 0)
 						{
 							if(temp.var != "")//havevar
-							 { 
+							 {
 								 if(temp.var.equals(d_var))
-								 { 
+								 {
 
 									 havevar = true;
 									 havev = true;
 									 if(temp.exponent == 1)
-									 { 
+									 {
 										 temp.var ="";
-										 
+
 									 }
 									 else
 									 {
@@ -289,22 +289,21 @@ public class polynomial {
 						 }
 					 }
 
-				 }		 	 
-					
+				 }
+
 				 if(havev == false)
-					 System.out.println("Error, no variable!"); 
-				     System.out.println("new add 11111");
+					 System.out.println("Error, no variable!");
 			 }
 			 else
-				 System.out.println("Error input!"); 
+				 System.out.println("Error input!");
 		 }
 		 else
 			 System.out.println("Error input!");
 
 		 return method.merge(root);
-		 
+
 	}
 }
 
 
-	
+

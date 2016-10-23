@@ -28,7 +28,6 @@ public class Test {
 					System.out.println("");
 				}
 				else {
-                        System.out.println("!!!!");
 					root = root.simplify(str,root);
 					root.display();
 					System.out.println("");
